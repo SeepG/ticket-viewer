@@ -1,0 +1,22 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "seep gulati",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeepG/ticket-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SeepG/ticket-viewer/issues"
+  },
+  "homepage": "https://github.com/SeepG/ticket-viewer#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
