@@ -5,6 +5,7 @@ import 'babel-polyfill';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import config from './config';
 
 dotenv.config()
 const app = express()
@@ -13,7 +14,6 @@ app.use(cors({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));  
 
-const port = process.env.PORT;
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 app.get('/', async (req, res) => res.send('Hello World!'))
@@ -41,6 +41,6 @@ app.get('/tickets',async (req,res)=> {
 	}
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(config.port, () => console.log(`Example app listening on port ${config.port}!`))
 
 
