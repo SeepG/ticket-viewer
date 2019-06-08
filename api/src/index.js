@@ -1,4 +1,6 @@
 
+//importing dependencies
+
 import express from 'express';
 import axios from 'axios';
 import 'babel-polyfill';
@@ -14,9 +16,9 @@ app.use(cors({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));  
 
-const username = process.env.USERNAME;
-const password = process.env.PASSWORD;
-app.get('/', async (req, res) => res.send('Hello World!'))
+const username = config.username;
+const password = config.password;
+
 app.get('/tickets',async (req,res)=> {
 	try{
 		let pageNumber = req.query.page;
@@ -41,6 +43,6 @@ app.get('/tickets',async (req,res)=> {
 	}
 });
 
-app.listen(config.port, () => console.log(`Example app listening on port ${config.port}!`))
+app.listen(config.port, () => console.log(`App listening on port ${config.port}!`))
 
 
