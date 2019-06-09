@@ -1,5 +1,5 @@
 
-// static class variable -to be explained later.
+// static class variables which get initialize automatically.
 class Config
 {
 	static get port(){

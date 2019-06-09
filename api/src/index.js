@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import config from './config';
 import getAllTickets from './getAllTickets';
+import getIndividualTicket from './getIndividualTicket';
 
 dotenv.config()
 const app = express()
@@ -15,6 +16,7 @@ app.use(cors({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));  
 
+// All tickets API
 
 const allTickets = new getAllTickets();
 app.get('/tickets',async (req,res)=> {
@@ -28,6 +30,29 @@ app.get('/tickets',async (req,res)=> {
 				apiUrl: config.url
 			};
 			const response = await allTickets.List(request);
+			res.json(response);
+		}
+		catch(err){
+			console.log(err);
+			if(err.response.status === 404){
+				res.status(404).send('No record found');
+			}
+			res.status(err.response.status).send(err.message);
+		}
+});
+
+// Individual Ticket API
+
+const individualTicket = new getIndividualTicket();
+app.get('/tickets/:id',async (req,res)=> {
+		try{
+			const request = {
+				username: config.username,
+				password: config.password,
+				ticketId: req.params.id,
+				apiUrl: config.url
+			};
+			const response = await individualTicket.Show(request);
 			res.json(response);
 		}
 		catch(err){

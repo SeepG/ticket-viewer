@@ -2,34 +2,33 @@
 import "@babel/polyfill";
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import getAllTickets from '../getAllTickets';
+import getIndividualTicket from '../getIndividualTicket';
 
 const mock = new MockAdapter(axios); 
-describe('Get All Tickets Test', () => {
-	it('Test Get All Tickets happy path', async () => {
-		const pageNumber = 2;
-		const perPageCount = 25;
+describe('Get Individual Ticket Test', () => {
+	it('Test Individual ticket happy path', async () => {
 		const mockedApiHost = 'http://mockedapiUrl';
-		const mockedApiUrl = `${mockedApiHost}?page=${pageNumber}&per_page=${perPageCount}&sort_by=created_at&sort_order=desc`
+		const mockedTicketId =  100;
+		const mockedApiUrl = `${mockedApiHost}/${mockedTicketId}.json`
 		const mockedUsername = 'blah';
 		const mockedPassword = 'password123';
 		const request = {
 			username: mockedUsername,
 			password: mockedPassword,
-			page: pageNumber,
-			per_page: perPageCount,
+			ticketId: mockedTicketId,
 			apiUrl: mockedApiHost
 		};
 		const mockedResponse = {
 			tickets: [
 				{
-					id: 1
+					id: 100,
+					subject: 'Yes'
 				}
 			]
 		};
 		mock.onGet(mockedApiUrl).reply(200, mockedResponse);
-		const allTickets = new getAllTickets();
-		const response = await allTickets.List(request);
+		const individualTicket = new getIndividualTicket();
+		const response = await individualTicket.Show(request);
 		expect(response).not.toBeNull();
 		expect(response).toEqual(mockedResponse);
 	});
