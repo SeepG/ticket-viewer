@@ -3,6 +3,7 @@ import "@babel/polyfill";
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import getIndividualTicket from '../getIndividualTicket';
+import TicketDetailsResponse from '../entities/TicketDetailsResponse';
 
 const mock = new MockAdapter(axios); 
 describe('Get Individual Ticket Test', () => {
@@ -18,15 +19,27 @@ describe('Get Individual Ticket Test', () => {
 			ticketId: mockedTicketId,
 			apiUrl: mockedApiHost
 		};
-		const mockedResponse = {
-			tickets: [
+		const mockedApiResponse = {
+			ticket: 
 				{
 					id: 100,
-					subject: 'Yes'
+					subject: 'Yes',
+					created_at: '2019-06-05T00:56:31Z',
+					status: 'open',
+					priority: 'normal',
+					description: "Aute ex sunt culpa ex ea esse sint cupidatat aliqua ex consequ",
+					tags:[
+						"est",
+						"incididunt",
+						"nisi"
+				]
 				}
-			]
 		};
-		mock.onGet(mockedApiUrl).reply(200, mockedResponse);
+		const mockedResponse = new TicketDetailsResponse(mockedApiResponse.ticket.id, 
+			mockedApiResponse.ticket.subject, mockedApiResponse.ticket.created_at, 
+			mockedApiResponse.ticket.status, mockedApiResponse.ticket.priority, 
+			mockedApiResponse.ticket.description, mockedApiResponse.ticket.tags);
+		mock.onGet(mockedApiUrl).reply(200, mockedApiResponse);
 		const individualTicket = new getIndividualTicket();
 		const response = await individualTicket.Show(request);
 		expect(response).not.toBeNull();

@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import TicketsResponse from './entities/TicketsResponse';
 class GetAllTickets{
 	async List(request){
 			const username = request.username;
@@ -15,7 +15,19 @@ class GetAllTickets{
 							}
 				}
 			);
-			return apiResponse.data;
+			const response = {
+				tickets:[],
+				count: apiResponse.data.count
+			};
+			for(let ticket of apiResponse.data.tickets){
+				const ticketResponse = new TicketsResponse(ticket.id, 
+					ticket.subject, 
+					ticket.created_at, 
+					ticket.status,
+					ticket.priority);
+					response.tickets.push(ticketResponse);
+			}
+			return response;
 	}
 }
 

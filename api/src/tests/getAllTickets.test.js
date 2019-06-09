@@ -23,9 +23,14 @@ describe('Get All Tickets Test', () => {
 		const mockedResponse = {
 			tickets: [
 				{
-					id: 1
+					id: 1,
+					subject: 'subject',
+					created_at: '2019-06-05T00:56:31Z',
+					status: 'open',
+					priority: 'normal'
 				}
-			]
+			],
+			count:20
 		};
 		mock.onGet(mockedApiUrl).reply(200, mockedResponse);
 		const allTickets = new getAllTickets();
