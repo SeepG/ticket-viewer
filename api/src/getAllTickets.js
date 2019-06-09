@@ -6,7 +6,7 @@ class GetAllTickets{
 			const password = request.password;
 			let pageNumber = request.page;
 			let per_page = request.per_page;
-			const requestUrl = `${request.apiUrl}?page=${pageNumber}&per_page=${per_page}&sort_by=created_at&sort_order=desc`;
+			const requestUrl = `${request.apiUrl}?page=${pageNumber}&per_page=${per_page}&sort_by=id`;
 			const apiResponse = await axios.get(requestUrl,
 				{
 					auth: {
