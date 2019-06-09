@@ -11,6 +11,9 @@ class Config
 	static get password(){
 		return process.env.PASSWORD;
 	}
+	static get url(){
+		return process.env.URL;
+	}
 }
 
 export default Config;
