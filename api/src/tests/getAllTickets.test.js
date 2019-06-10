@@ -10,13 +10,13 @@ describe('Get All Tickets Test', () => {
 		const pageNumber = 2;
 		const perPageCount = 25;
 		const mockedApiHost = 'http://mockedapiUrl';
-		const mockedApiUrl = `${mockedApiHost}?page=${pageNumber}&per_page=${perPageCount}&sort_by=created_at&sort_order=desc`
+		const mockedApiUrl = `${mockedApiHost}?page=${pageNumber}&per_page=${perPageCount}&sort_by=id`
 		const mockedUsername = 'blah';
 		const mockedPassword = 'password123';
 		const request = {
 			username: mockedUsername,
 			password: mockedPassword,
-			page: pageNumber,
+			pageNumber: pageNumber,
 			per_page: perPageCount,
 			apiUrl: mockedApiHost
 		};
@@ -26,8 +26,7 @@ describe('Get All Tickets Test', () => {
 					id: 1,
 					subject: 'subject',
 					created_at: '2019-06-05T00:56:31Z',
-					status: 'open',
-					priority: 'normal'
+					status: 'open'
 				}
 			],
 			count:20

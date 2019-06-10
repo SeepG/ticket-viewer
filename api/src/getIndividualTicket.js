@@ -20,8 +20,7 @@ class GetIndividualTicket{
 			const apiTicketResponse = apiResponse.data.ticket;
 			const individualTicketResponse = new TicketDetailsResponse(apiTicketResponse.id, 
 				apiTicketResponse.subject, apiTicketResponse.created_at, 
-				apiTicketResponse.status, apiTicketResponse.priority, 
-				apiTicketResponse.description, apiTicketResponse.tags)
+				apiTicketResponse.status,apiTicketResponse.description, apiTicketResponse.tags)
 			return individualTicketResponse;
 	}
 }

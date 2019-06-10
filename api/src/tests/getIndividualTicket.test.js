@@ -26,7 +26,6 @@ describe('Get Individual Ticket Test', () => {
 					subject: 'Yes',
 					created_at: '2019-06-05T00:56:31Z',
 					status: 'open',
-					priority: 'normal',
 					description: "Aute ex sunt culpa ex ea esse sint cupidatat aliqua ex consequ",
 					tags:[
 						"est",
@@ -37,8 +36,7 @@ describe('Get Individual Ticket Test', () => {
 		};
 		const mockedResponse = new TicketDetailsResponse(mockedApiResponse.ticket.id, 
 			mockedApiResponse.ticket.subject, mockedApiResponse.ticket.created_at, 
-			mockedApiResponse.ticket.status, mockedApiResponse.ticket.priority, 
-			mockedApiResponse.ticket.description, mockedApiResponse.ticket.tags);
+			mockedApiResponse.ticket.status, mockedApiResponse.ticket.description, mockedApiResponse.ticket.tags);
 		mock.onGet(mockedApiUrl).reply(200, mockedApiResponse);
 		const individualTicket = new getIndividualTicket();
 		const response = await individualTicket.Show(request);
