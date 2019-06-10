@@ -34,10 +34,15 @@ app.get('/tickets',async (req,res)=> {
 		}
 		catch(err){
 			console.log(err);
-			if(err.response.status === 404){
-				res.status(404).send('No record found');
+			if(err.response.status === 500){
+				res.status(500).send({message:'Internal error has occurred'});
 			}
-			res.status(err.response.status).send(err.message);
+			if(err.response.status === 404){
+				res.status(404).send({message:`Tickets API doesn't exist`});
+			}
+			else{
+			res.status(err.response.status).send({message:err.message});
+			}
 		}
 });
 
@@ -57,10 +62,15 @@ app.get('/tickets/:id',async (req,res)=> {
 		}
 		catch(err){
 			console.log(err);
-			if(err.response.status === 404){
-				res.status(404).send('No record found');
+			if(err.response.status === 500){
+				res.status(500).send({message:'Internal error has occurred'});
 			}
-			res.status(err.response.status).send(err.message);
+			if(err.response.status === 404){
+				res.status(404).send({message:`Ticket ID - ${req.params.id} doesn't exist`});
+			}
+			else{
+			res.status(err.response.status).send({message:err.message});
+			}
 		}
 });
 
