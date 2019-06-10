@@ -2,7 +2,7 @@
 ## Project Description
 
 Ticket Viewer
-# customer service tool that allows the creation and management of support tickets.
+### Customer service tool that allows the creation and management of support tickets.
 
 [Github Repository](https://github.com/SeepG/ticket-viewer)
 
@@ -56,11 +56,11 @@ Ticket-Viewer is built using a simple REST API with NodeJS and Express. PostMan 
 
 1. Navigate to a location where you want to install the source and run `git clone https://github.com/SeepG/ticket-viewer.git`
 
-2. Run `npm install`
+# Run `npm install`
 Runs the app in the development mode.
 Open http://localhost:8000 to view it in the browser.
 
-3. Run `npm start` to run the server in development mode.
+# Run `npm start` to run the server in development mode.
 
 #### Dependencies?
     "@babel/cli": "^7.4.4",
@@ -136,11 +136,13 @@ Trello board link
 ### Architecture of App.
 
 Back End
-Node.js & Express.js
-Axios HTTP client for routing requests
+- Node.js & Express.js
+- Axios HTTP client for routing requests
 
 Front End
-Javascript, HTML and CSS
+- Javascript
+- HTML 
+- Bootstrap
 
 ### Version control process ?
 Git commits after every feature and test run.
@@ -148,7 +150,7 @@ Git commits after every feature and test run.
 ### Testing process
 - Tried Mocha and Chai earlier. Didn't get them to work so moved instead to Jest unit testing.
 
-To run tests: npm test
+# To run tests: npm test
 Launches the test runner in the interactive watch mode.
 
 - Upgraded Babel 6 to 7. Added Jest dependencies. Wrote Happy Path - Test case 1. Checked test running on CL. Ran server and checked the data recieved in Postman.
