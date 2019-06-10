@@ -4,7 +4,7 @@ class GetAllTickets{
 	async List(request){
 			const username = request.username;
 			const password = request.password;
-			let pageNumber = request.page;
+			let pageNumber = request.pageNumber;
 			let per_page = request.per_page;
 			const requestUrl = `${request.apiUrl}?page=${pageNumber}&per_page=${per_page}&sort_by=id`;
 			const apiResponse = await axios.get(requestUrl,
@@ -23,8 +23,7 @@ class GetAllTickets{
 				const ticketResponse = new TicketsResponse(ticket.id, 
 					ticket.subject, 
 					ticket.created_at, 
-					ticket.status,
-					ticket.priority);
+					ticket.status);
 					response.tickets.push(ticketResponse);
 			}
 			return response;
