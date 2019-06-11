@@ -1,6 +1,6 @@
 
 const per_page = 25;
-const renderAllTickets = (tickets, count) => {
+const renderAllTickets = (tickets, count, pageNumber) => {
 		tickets.forEach(function(ticket) {
 		let tableRow = `<tr>`;
 		tableRow += `<th scope="row"><a href="?ticketid=${ticket.id}">${ticket.id}</a></th>`;
@@ -19,6 +19,7 @@ const renderAllTickets = (tickets, count) => {
 		pageLinks += `<a href=?page=${i}>${i}</a>`;
 	}
 	document.getElementById('divPagination').innerHTML = pageLinks;
+	document.getElementById("showPageinfo").innerText =`Showing page of ${pageNumber} of ${numberOfPages}`
 }
 	const renderTicketDetails = (ticket) => {
 	
@@ -43,7 +44,7 @@ const getTickets = (pageNumber) =>{
 		}
 	})
 	.then((data)=> {
-		renderAllTickets(data.tickets, data.count);
+		renderAllTickets(data.tickets, data.count, pageNumber);
 	})
 	.catch((err) => {
 		console.log(err.message);
@@ -70,6 +71,7 @@ const getTicketDetails = (ticketId) =>{
 	})
 }
 
+// initialization happens first
 const init = ()=>{
 	const params = new URLSearchParams(window.location.search);
 	const pageNumber = params.get('page');
