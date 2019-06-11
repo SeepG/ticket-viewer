@@ -52,15 +52,46 @@ Ticket-Viewer is built using a simple REST API with NodeJS and Express. PostMan 
 * NPM as a packet manager gave us access to various libraries and programs and easily manage the installation process.
 * Visual Studio Code helped in writing source-code and supported debugging.
 
+## Folder structure
+Ticket-Viewer 
+- api (main folder for back-end application)
+    - dist
+    - node_modules
+  - src
+    - entities
+        - TicketDetailsResponse
+        - TicketsResponse  
+    - tests
+        - getAllTickets.test.js
+        - getIndividualTicket.test.js
+    - config.js
+    - getAllTickets.js
+    - getIndividualTicket.js
+    - index.js
+  - .babelrc
+  - .env
+  - package-lock.json
+  - package.json
+- front end (main folder for front-end application)
+    - index.html
+    - script.js
+    - style.css
+- .gitignore
+- README.md
+
 ## Installation
 
 1. Navigate to a location where you want to install the source and run `git clone https://github.com/SeepG/ticket-viewer.git`
 
-# Run `npm install`
-Runs the app in the development mode.
-Open http://localhost:8000 to view it in the browser.
+2. cd into api folder and run the app in the development mode with below command.
+`npm install`
 
-# Run `npm start` to run the server in development mode.
+3. cd into api folder and then run the server with below command.
+ `npm start` 
+ 
+4. You will see the App listening on port 8000!
+
+5. To view UI (front end) in the browser. Open http://localhost:8000
 
 #### Dependencies?
     "@babel/cli": "^7.4.4",
