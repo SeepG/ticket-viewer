@@ -1,4 +1,4 @@
-
+// renders all tickets, also shows current page number of no. of pages
 const per_page = 25;
 const renderAllTickets = (tickets, count, pageNumber) => {
 		tickets.forEach(function(ticket) {
@@ -21,6 +21,8 @@ const renderAllTickets = (tickets, count, pageNumber) => {
 	document.getElementById('divPagination').innerHTML = pageLinks;
 	document.getElementById("showPageinfo").innerText =`Showing page of ${pageNumber} of ${numberOfPages}`
 }
+
+// table headers
 	const renderTicketDetails = (ticket) => {
 	
 		let tableBody = `<tr><th scope="row">Ticket Id</th><td>${ticket.id}</td></tr>`;
@@ -32,6 +34,7 @@ const renderAllTickets = (tickets, count, pageNumber) => {
 		document.getElementById("ticketDetails").innerHTML += tableBody;
 
 }
+
 const getTickets = (pageNumber) =>{
 	fetch(`http://localhost:8000/tickets?page=${pageNumber}&per_page=${per_page}`)
 	.then((response) => {
@@ -71,7 +74,7 @@ const getTicketDetails = (ticketId) =>{
 	})
 }
 
-// initialization happens first
+// initialization happens first 
 const init = ()=>{
 	const params = new URLSearchParams(window.location.search);
 	const pageNumber = params.get('page');

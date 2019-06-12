@@ -4,6 +4,8 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import getAllTickets from '../getAllTickets';
 
+// mock data is used for testing 
+
 const mock = new MockAdapter(axios); 
 describe('Get All Tickets Test', () => {
 	it('Test Get All Tickets happy path', async () => {

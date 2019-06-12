@@ -9,6 +9,9 @@ import config from './config';
 import getAllTickets from './getAllTickets';
 import getIndividualTicket from './getIndividualTicket';
 
+// configuration for express to run
+// cors is required to access it from frontend
+// body-parser extracts the entire body portion of an incoming request and exposes it on req.body 
 dotenv.config()
 const app = express()
 app.use(cors({

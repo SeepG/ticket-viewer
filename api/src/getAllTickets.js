@@ -1,3 +1,5 @@
+// this class gets all ticket details from api
+
 import axios from 'axios';
 import TicketsResponse from './entities/TicketsResponse';
 class GetAllTickets{

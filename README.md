@@ -4,10 +4,7 @@
 Ticket Viewer
 ### Customer service tool that allows the creation and management of support tickets.
 
-[Github Repository](https://github.com/SeepG/ticket-viewer)
-
-### Site Map
-<!-- ![](./docs/sitemap.png) --> To do
+[Link to Github Repository](https://github.com/SeepG/ticket-viewer)
 
 ### Functionality
 - Ticket Viewer allows user to browse through tickets.
@@ -33,30 +30,50 @@ As a User,
 I want to see individual ticket.
 So that I can start work on closing the ticket.
 
-### Screenshots /Gif
-
-- Postman - Receiving information from API.
-- Landing page - List of All tickets & Individual ticket
-
-![](./docs/landing-page1.png)
+### Demo gif
+![](./docs/demo.gif)
 
 ### Technology Stack
+Ticket-Viewer is built using a simple REST API with NodeJS and Express. PostMan has been used for testing. HTML, Javascript and Bootstrap for the front-end. 
 
-Ticket-Viewer is built using a simple REST API with NodeJS and Express. PostMan app has been utilized for querying the same server.HTML and CSS for the front-end markup. Javascript has also been used for asynchronous requests. 
+### Architecture of App.
+Back End - Nodejs & Expressjs
 
-### Software used in Application.
+Front End - Javascript, HTML and Bootstrap(css classes)
 
-* Javascript - version
-* Node - version
-* Express - version
+### Softwares used in application.
+* Javascript - ES7 
+* Node - 10.16.0
+* Express - 4.16.1
 * NPM as a packet manager gave us access to various libraries and programs and easily manage the installation process.
 * Visual Studio Code helped in writing source-code and supported debugging.
 
+## Installation
+
+1. Navigate to a location where you want to install the source and run `git clone https://github.com/SeepG/ticket-viewer.git`
+
+2. You need to open the git repository in a code editor of your choice. I'm using visual studio code. Download link: https://code.visualstudio.com/docs/setup/mac
+
+3. cd into api folder and run below command.
+`npm install`
+
+4. To start the api, run below command.
+ `npm start` 
+ 
+5. You will see the App listening on port 8000!
+
+6. To view UI in the browser. Download Live server Visual Studio code.extension. Download link: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+7. Once live server is installed. Click on index.html file link and right click to open with live server. Refer screenshot below.
+
+![](./docs/liveserver-explanation.png) 
+
 ## Folder structure
+![](./docs/repository-structure.png)
+
+Complete folder structure is as follows:
 Ticket-Viewer 
 - api (main folder for back-end application)
-    - dist
-    - node_modules
   - src
     - entities
         - TicketDetailsResponse
@@ -65,13 +82,14 @@ Ticket-Viewer
         - getAllTickets.test.js
         - getIndividualTicket.test.js
     - config.js
-    - getAllTickets.js
+    - getAllTickets.js 
     - getIndividualTicket.js
     - index.js
   - .babelrc
   - .env
   - package-lock.json
   - package.json
+- docs
 - front end (main folder for front-end application)
     - index.html
     - script.js
@@ -79,47 +97,66 @@ Ticket-Viewer
 - .gitignore
 - README.md
 
-## Installation
+Rationale/Approach
 
-1. Navigate to a location where you want to install the source and run `git clone https://github.com/SeepG/ticket-viewer.git`
+- dist and node-modules - Have been added to .git ignore because of heavy file size as well as they would be generated again when npm install is run.
 
-2. cd into api folder and run the app in the development mode with below command.
-`npm install`
+- entities under Src - Created classes to get customized response from API. It not helped in separation of concern but also helped in designing the UI.
 
-3. cd into api folder and then run the server with below command.
- `npm start` 
- 
-4. You will see the App listening on port 8000!
+- tests - Two happy paths test have been laid out in test folder. Mock data has been used for testing purpose. It helps in simulate errors and circumstances that would otherwise be very difficult to create in a real world environment. 
 
-5. To view UI (front end) in the browser. Open http://localhost:8000
+- config.js - Static class variables have been utilized so that we can get those values when the application starts and there is no need to instantiate the config class.
 
-#### Dependencies?
-    "@babel/cli": "^7.4.4",
-    "@babel/plugin-transform-regenerator": "^7.4.5",
-    "@babel/polyfill": "^7.4.4",
-    "axios": "^0.19.0",
-    "axios-mock-adapter": "^1.16.0",
-    "body-parser": "^1.19.0",
-    "compression": "^1.5.2",
-    "cors": "^2.7.1",
-    "dotenv": "^8.0.0",
-    "express": "^4.13.3",
-    "express-generator": "^4.16.1",
-    "morgan": "^1.8.0",
-    "resource-router-middleware": "^0.6.0"
+backend code has been separated into three files:
+- getAllTickets.js receives all tickets from api
+- getIndividualTicket.js retrieves individual ticket from api.
+- index.js runs the server and error handling statements. It is main file.
+
+- .env - Dotenv module used to protect api sensitive information. 
+Configuration information was saved in a .env file and Dotenv loaded the environment variables into process.env. .env file has been added to git ignore for extra layer of security.
+
+- package.json - Carries the details of all application dependencies.
+
+- docs - Carries images embedded in README.md.
+
+- Frontend code has been divided into three files- 
+- index.html to run UI via live server.
+- script.js has browser javascript.
+- style.css has additional styling.
+
+- .gitignore - ignores the file which shouldn't be on git.
 
 ## Design process
-This application has been designed for "Desktop-first" experience, as customer service will tend to resolve queries over desktop in a real life scenario.
+This application has been designed for "Desktop-first" experience, as customer service team will resolve queries over desktop in a real life scenario.
 
-### Wireframe sketches
+### Error handling
+- Displays a error message if the API is unavailable.
+- Tells the user something is wrong if there is a program error.
+
+### Testing process
+- Tried Mocha and Chai earlier. Didn't get them to work so moved instead to Jest unit testing. Also, Axios mock adapter was used for testing.
+
+# To run tests: npm test
+
+- Upgraded Babel 6 to 7. Added Jest dependencies. 
+- Set up test requirements.Wrote Happy Path test cases for user stories 
+
+Happy Path tests
+Test case 1: Show all tickets from the User account.
+Displaying all tickets with 200 status code.
+
+Test case 2: Show individual ticket.
+Displaying individual ticket with 200 status code.
+
+### Version control process 
+Git commits after every feature and test run.
 
 ### Workflow Timeline 
 
 #### Day1
 - Planning
-- Trello
-- Wireframes
 - Research
+- Notebook tracker & Trello to track project timeline.
 
 #### Day2
 - Populated tickets through Postman and got sample 101 tickets to play around.  
@@ -128,8 +165,9 @@ This application has been designed for "Desktop-first" experience, as customer s
 
 #### Day3
 - Explored express server boilerplate.
+- Tried UI code.
 - Worked on receiving responses from API.
-- Created Git repository to start.
+- Created Git repository.
 
 #### Day 4
 - Worked on back-end application
@@ -141,63 +179,20 @@ This application has been designed for "Desktop-first" experience, as customer s
 - Worked on trial UI.
 - Installed Mocha, Chai and Nock.
 - Set unit test requirements.
+- Testing with Jest.
 
 #### Day6
-- Making app MVP ready
-- Make sure code is well commented
-- Pending requirements
-- Documentation 
+- Worked on Front end application. 
+- Making app MVP ready.
+- Updated ReadMe documentation.
+
+#### Day7 
+- Ensured that code is well commented.
+- Updated ReadMe documentation.
 - Submission
 
-#### Trello screenshots
-- Trello
-![](./docs/trello.png)
+#### Trello 
+[Link to Trello board](https://trello.com/b/yGOryhco/ticket-viewer)
 
-Trello board link
-<!-- [Github Repository](https://github.com/SeepG/ticket-viewer) -->
-
-### Approach justification and advantages
-
-### Error handling
-
-- Displays a friendly error message if the API is unavailable.
-- Displays a error message or the response is invalid.
-- Tells the user something is wrong if there is a program error.
-
-### Architecture of App.
-
-Back End
-- Node.js & Express.js
-- Axios HTTP client for routing requests
-
-Front End
-- Javascript
-- HTML 
-- Bootstrap
-
-### Version control process ?
-Git commits after every feature and test run.
-
-### Testing process
-- Tried Mocha and Chai earlier. Didn't get them to work so moved instead to Jest unit testing.
-
-# To run tests: npm test
-Launches the test runner in the interactive watch mode.
-
-- Upgraded Babel 6 to 7. Added Jest dependencies. Wrote Happy Path - Test case 1. Checked test running on CL. Ran server and checked the data recieved in Postman.
-- Added Jest dependencies in package.json. Upgraded Babel 6 to 7 
-- Wrote test case scenario and changed requirements in index for running test.
-
-Happy Path tests
-Test case 1: Show all tickets from the User account.
-Displaying all tickets with 200 status code.
-
-Test case 2: Show individual ticket.
-Displaying all tickets with 200 status code.
-
-Not so happy Path tests?
-
-### Protecting information and data
-I have used Dotenv module to protect api sensitive information. 
-Configuration information was saved in a .env file and Dotenv loaded the environment variables into process.env.
-.env file has been added to git ignore for extra layer of security.
+#### Learning approach
+I learn best with a combination approach - reading blogs,tutorials, code-along on youTube, class, practically exploring and even going for community meet-ups to get a top-level perspective on new concepts.

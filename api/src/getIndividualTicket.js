@@ -1,3 +1,4 @@
+// this class gets individual ticket detail from api
 
 import axios from 'axios';
 
