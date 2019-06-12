@@ -1,10 +1,11 @@
 
-## Project Description
-
 Ticket Viewer
 ### Customer service tool that allows the creation and management of support tickets.
 
-[Link to Github Repository](https://github.com/SeepG/ticket-viewer)
+[Github Repository](https://github.com/SeepG/ticket-viewer)
+
+### Author: Seep Gulati
+[Linkedin](https://www.linkedin.com/in/seepgulati) | [Twitter](https://twitter.com/seepgulati)
 
 ### Functionality
 - Ticket Viewer allows user to browse through tickets.
@@ -38,7 +39,6 @@ Ticket-Viewer is built using a simple REST API with NodeJS and Express. PostMan 
 
 ### Architecture of App.
 Back End - Nodejs & Expressjs
-
 Front End - Javascript, HTML and Bootstrap(css classes)
 
 ### Softwares used in application.
@@ -47,6 +47,10 @@ Front End - Javascript, HTML and Bootstrap(css classes)
 * Express - 4.16.1
 * NPM as a packet manager gave us access to various libraries and programs and easily manage the installation process.
 * Visual Studio Code helped in writing source-code and supported debugging.
+
+### Prerequisites
+The first thing you need to have is Node.js on your computer.You can download the Node.js installer from the Node.js website at: https://nodejs.org/en/download/
+Once Node.js is installed, open a terminal and enter the command node --version to verify that it is installed correctly. This application is using Node 10.16.0 version.
 
 ## Installation
 
@@ -135,11 +139,11 @@ This application has been designed for "Desktop-first" experience, as customer s
 
 ### Testing process
 - Tried Mocha and Chai earlier. Didn't get them to work so moved instead to Jest unit testing. Also, Axios mock adapter was used for testing.
-
-# To run tests: npm test
-
 - Upgraded Babel 6 to 7. Added Jest dependencies. 
-- Set up test requirements.Wrote Happy Path test cases for user stories 
+- Set up test requirements.Wrote Happy Path test cases for user stories.
+
+# To run tests
+`npm test` 
 
 Happy Path tests
 Test case 1: Show all tickets from the User account.
@@ -191,8 +195,19 @@ Git commits after every feature and test run.
 - Updated ReadMe documentation.
 - Submission
 
-#### Trello 
+#### Trello captures MVP and stretch goals
 [Link to Trello board](https://trello.com/b/yGOryhco/ticket-viewer)
 
 #### Learning approach
-I learn best with a combination approach - reading blogs,tutorials, code-along on youTube, class, practically exploring and even going for community meet-ups to get a top-level perspective on new concepts.
+I learn best with a combination approach - reading blogs,tutorials, code-along on youTube, class, practically exploring and even attending community meet-ups to get a top-level perspective on new concepts. We were introduced to Javascript two weeks ago. Express js and testing were totally new topics for me, I have gone through original documentation and other tutorials to work through this challenge. 
+Out of countless online resources which were referred, few of the links below carry special mention for getting this done.
+
+Express
+https://github.com/developit/express-es6-rest-api
+
+Jest (all 3 videos under Jest testing)
+https://www.youtube.com/watch?v=4kNfeI37xu4&list=PLLnpHn493BHEB-YOl0APuQsrzlb3zbq3y
+https://medium.com/@ryanblahnik/setting-up-testing-with-jest-and-node-js-b793f1b5621e
+
+Babel trouble
+https://github.com/facebook/jest/issues/6913
