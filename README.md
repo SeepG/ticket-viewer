@@ -64,7 +64,7 @@ Once Node.js is installed, open a terminal and enter the `node --version` on com
 4. To start the api, run below command.
  `npm start` 
  
-5. You will see the App listening on port 8000!
+5. You will see the App listening on port 8000
 
 6. To view UI in the browser. Download Live server Visual Studio code.extension. Download link: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
 
