@@ -112,9 +112,9 @@ Rationale/Approach
 - config.js - Static class variables have been utilized so that we can get those values when the application starts and there is no need to instantiate the config class.
 
 backend code has been separated into three files:
-  1. getAllTickets.js receives all tickets from api. 
-  2. getIndividualTicket.js retrieves individual ticket from api.
-  3. index.js runs the server and error handling statements. It is main file.
+  - getAllTickets.js receives all tickets from api. 
+  - getIndividualTicket.js retrieves individual ticket from api.
+  - index.js runs the server and error handling statements. It is main file.
 
 - .env - Dotenv module used to protect api sensitive information. 
 Configuration information was saved in a .env file and Dotenv loaded the environment variables into process.env. .env file has been added to git ignore for extra layer of security.
@@ -124,9 +124,9 @@ Configuration information was saved in a .env file and Dotenv loaded the environ
 - docs - Carries images embedded in README.md.
 
 - Frontend code has been divided into three files- 
-  1. index.html to run UI via live server.
-  2. script.js has browser javascript.
-  3. style.css has additional styling.
+  - index.html to run UI via live server.
+  - script.js has browser javascript.
+  - style.css has additional styling.
 
 - .gitignore - ignores the file which shouldn't be on git.
 
