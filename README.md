@@ -11,7 +11,7 @@
 - Ticket Viewer allows user to browse through tickets.
 - Ticket Viewer allows user to check individual tickets 
 
-### User stories for App.
+### User stories
 
 User stories have been planned as per role, action and business goal/reasoning).
 
@@ -37,11 +37,10 @@ So that I can start work on closing the ticket.
 ### Technology Stack
 Ticket-Viewer is built using a simple REST API with NodeJS and Express. PostMan has been used for testing. HTML, Javascript and Bootstrap for the front-end. 
 
-### Architecture of App.
-Back End - Nodejs & Expressjs
-Front End - Javascript, HTML and Bootstrap(css classes)
+### Architecture of application
+Back End - Nodejs & Expressjs | Front End - Javascript, HTML and Bootstrap
 
-### Softwares used in application.
+### Softwares used in application
 * Javascript - ES7 
 * Node - 10.16.0
 * Express - 4.16.1
@@ -50,7 +49,8 @@ Front End - Javascript, HTML and Bootstrap(css classes)
 
 ### Prerequisites
 The first thing you need to have is Node.js on your computer.You can download the Node.js installer from the Node.js website at: https://nodejs.org/en/download/
-Once Node.js is installed, open a terminal and enter the command node --version to verify that it is installed correctly. This application is using Node 10.16.0 version.
+
+Once Node.js is installed, open a terminal and enter the `node --version` on command line to verify that it is installed correctly. This application is using Node 10.16.0 version.
 
 ## Installation
 
@@ -155,7 +155,7 @@ Displaying individual ticket with 200 status code.
 ### Version control process 
 Git commits after every feature and test run.
 
-### Workflow Timeline 
+### Workflow timeline 
 
 #### Day1
 - Planning
