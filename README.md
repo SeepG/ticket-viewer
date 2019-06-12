@@ -1,6 +1,6 @@
 
-Ticket Viewer
-### Customer service tool that allows the creation and management of support tickets.
+#### Ticket Viewer
+# Customer service tool that allows the creation and management of support tickets.
 
 [Github Repository](https://github.com/SeepG/ticket-viewer)
 
